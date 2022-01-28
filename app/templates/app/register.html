@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load static %}
+{% block content %}
+
+<form method="POST" id="my_form" action="{% url 'home' %}">
+    {% csrf_token %}
+<div class=' d-flex flex-row'>
+    <div class='col-md-12 col-sm-12 col-12 m-4 d-flex justify-content-center'>
+        
+        <div class="card p-2">
+            {% if messages %}
+            {% for message in messages %}
+                <div id="msg" class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}"
+                        role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+            <div class="card-header text-center">
+                Welcome to Social App Please Fill the Details
+            </div>
+            <div class="p-2 card-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-lg-12 col-12" id="form">
+                        <div class='col mt-2'>
+                            <div class='form-group' id="user_check">                                 
+                                <label class='label' for='username'> Username </label><span class="ml-3" id="check_user" style="color:pink;display:none">Checking Availability...</span>
+                                <input type="text" class='form-control ml-3'  id="username" placeholder="Enter Username" name="username" />
+                                <span id="status"></span>
+                                
+                            </div>
+                        </div>
+                        <div class='col mt-2'>
+                            <div class='form-group'>
+                                <label class='label'> First Name </label>
+                                <input type="text" class='form-control ml-3'  id="first" placeholder=" Enter First Name" name='first_name' />
+                            </div>
+                        </div><div class='col mt-2'>
+                            <div class='form-group'>
+                                <label class='label'> Last Name </label>
+                                <input type="text" class='form-control ml-3'  id="last" placeholder=" Enter Last Name"name='last_name'/>
+                            </div>
+                        </div>
+                        <div class='col mt-2'>
+                            <div class='form-group'>
+                                <label class='label'> Date of Birth </label>
+                                 <input type="date" class='form-control ml-3'  id="birth_date" placeholder="Enter Password" name='birth_date'/>
+                            </div>
+                    </div>
+                    <div class='col mt-2'>
+                            <div class='form-group'>
+                                <label class='label'> Email </label><span class="ml-3" id="check_email" style="color:pink;display:none">Checking Availability...</span>
+                                <input type="text" class='form-control ml-3'  id="email" placeholder="Enter Email" name='email'/>
+                            </div>
+                        </div>
+                        <div class='col mt-2'>
+                            <div class='form-group'>
+                                <label for="formfile" class='form-label'> Profile Pic </label>
+                                <input  type="file" accept='image/*' class="form-control" id="formfile" name="profile_pic">   
+                            </div>
+                        </div>
+                            <div class='col mt-2'>
+                                <div class='form-group'>
+                                    <label class='label'> Password </label>
+                                     <input type="Password" class='form-control ml-3'  id="password1" placeholder="Enter Password" name='password1'/>
+                                </div>
+                        </div>
+                        <div class='col mt-2'>
+                            <div class='form-group'>
+                                <label class='label'> Retype Password </label>
+                                <input type="password" class='form-control ml-3'  id="password2" placeholder="Confirm Password" name='password2' />
+                            </div>
+                        </div>
+                        <div class='col mt-2'>
+                            <div class='form-group'>
+                                <button type="submit" class="btn btn-success btn-sm" name="signup_btn">Sign Up</button>
+                                Already have an Account?  <button class="btn btn-info btn-sm" id="login" name="login_btn">Login</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+{% endblock%}
+{% block scripts %}
+<script src={% static 'app/js/index.js' %}></script>
+{% endblock %}

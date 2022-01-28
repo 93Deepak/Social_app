@@ -1,0 +1,10 @@
+.status_pic {
+    
+overflow: hidden;
+border-radius: 20%;
+}
+
+.status_pic img {
+    width: 50%;
+    height: auto;
+}

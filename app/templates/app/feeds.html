@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title%} {{request.user.username}} - Feeds {% endblock %}
+
+{% load static %}
+{% block content %}
+<div class="col-lg-8 col-md-8 col-sm-8 col-8">
+    {% if messages %}
+            {% for message in messages %}
+                <div id="msg" class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}"
+                        role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    <div class="row mt-4">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+            <form method="POST" action="{% url 'post_status' %}">
+                {% csrf_token %}
+                <div class="row">
+                <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+                    <div class="form-group">
+                        <input type="hidden" name="created_by" value={{request.user.id}} />
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="status"></textarea>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2 mt-4">
+                    <div class="form-group mt-2">
+                    <button type="submit" class="btn btn-success">POST</button>
+                    </div>
+                </div>
+            </div>         
+            </form>
+        </div>
+    </div>
+    {% for i in status %}
+    <div class="row">
+        <div class="col-10">
+    <div class="card mt-3">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-2 status_pic">
+                    {% if i.created_by.profile_pic.url is not None %}
+                    <img alt="User Picture" src="{{i.created_by.profile_pic.url}}" />
+                    {% endif %}
+                </div>
+                <div class="col-6 text-left">
+                    <h5>{{i.created_by.username}}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            {{i.status}}
+        </div>
+        <div class="card-footer">
+        </div>
+    </div>
+</div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+{% block scripts %}
+<script src={% static 'app/js/index.js' %}></script>
+{% endblock %}

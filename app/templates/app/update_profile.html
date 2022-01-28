@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="col-lg-8 col-md-8 col-sm-8 col-8">
+    <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+        <div class=" col-sm-12 col-12">
+        <div class="row mt-4">
+          <div class="col-sm-6 col-6 mt-2">
+              <label class="form-group label">First Name</label>
+            <input type="text" class="form-control" placeholder="{{form.data.first_name}}" name="first_name" value={{form.data.first_name}}>
+          </div>
+          <div class="col-sm-6 col-6 mt-2">
+            <label class="form-group label">Last Name</label>
+            <input type="text" class="form-control" name="last_name" placeholder={{form.data.last_name}} value={{form.data.last_name}}>
+          </div>
+          <div class="col-sm-6 col-6 mt-2">
+            <label class="form-group label">Date of Birth</label>
+            <input type="date" class="form-control"  name="birth_date" placeholder={{form.data.birth_date}} value={{form.data.birth_date}}>
+          </div>
+          <div class="col-sm-6 col-6 mt-2">
+            <label class="form-group label">Profile Picture</label>
+            <input type="file" class="form-control" id="formfile" name="profile_pic" />
+          </div>
+          <div class="col-sm-6 col-6 mt-4">
+              <div class="form-group mt-4">
+              <button type="submit" class="btn btn-success">Update details</button>
+              </div>
+          </div>
+          
+        </div>
+        </div>
+      </form>
+</div>
+
+{% endblock%}
