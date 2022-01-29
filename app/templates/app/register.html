@@ -3,7 +3,7 @@
 {% load static %}
 {% block content %}
 
-<form method="POST" id="my_form" action="{% url 'home' %}">
+<form method="POST" id="my_form" action="{% url 'home' %}" enctype="multipart/form-data">
     {% csrf_token %}
 <div class=' d-flex flex-row'>
     <div class='col-md-12 col-sm-12 col-12 m-4 d-flex justify-content-center'>
