@@ -13,6 +13,9 @@ Steps to setup
  run docker ps -a or sudo docker ps -a
  copy container_id,
  run sudo docker start <container_id>
+ then python manage.py runserver
+
+8. run python manage.py loaddata fixtures/dump.json to load the initial data which i have created
  
  API URLS,
  1. api/userview - GET / POST
