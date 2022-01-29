@@ -36,8 +36,8 @@ DEBUG = False
 
 TEMPLATE_DEBUG = DEBUG
 
-CSRF_TRUSTED_ORIGINS = ["*"]
-ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["https://secret-caverns-61721.herokuapp.com/",'localhost']
+ALLOWED_HOSTS = ["https://secret-caverns-61721.herokuapp.com/",'localhost']
 
 AUTH_USER_MODEL = 'app.User'
 
