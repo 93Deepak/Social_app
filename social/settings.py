@@ -36,7 +36,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = DEBUG
 
-CSRF_TRUSTED_ORIGINS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["https://secret-caverns-61721.herokuapp.com"]
 CSRF_COOKIE_DOMAIN = ["*"]
 ALLOWED_HOSTS = ["*"]
 
