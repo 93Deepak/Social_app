@@ -36,7 +36,8 @@ DEBUG = False
 
 TEMPLATE_DEBUG = DEBUG
 
-CSRF_TRUSTED_ORIGINS = ["*"]
+CSRF_TRUSTED_ORIGINS = [".herokuapp.com", "localhost"]
+CSRF_COOKIE_DOMAIN = [".herokuapp.com"]
 ALLOWED_HOSTS = ["*"]
 
 AUTH_USER_MODEL = 'app.User'
